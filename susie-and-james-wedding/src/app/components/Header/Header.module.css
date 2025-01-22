@@ -1,0 +1,13 @@
+.header {
+  height: 80px;
+  width: 100vw;
+  justify-content: space-between;
+  background-color: grey;
+  ul {
+    display: flex;
+    gap: 20px;
+    li {
+      text-decoration: none;
+    }
+  }
+}
