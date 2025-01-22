@@ -6,14 +6,34 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  display: flex;
+  flex-direction: column; /* Keep the column layout */
+  align-items: center; /* Ensure children stretch to fill width */
+  justify-content: center; /* Distribute space evenly */
+  min-height: 90svh; /* Full viewport height */
+  /* height: 100vh; */
+  margin: 0;
+  padding: 0;
   font-family: var(--font-geist-sans);
+}
+
+.hero {
+  position: absolute; /* Makes it independent of the layout flow */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Prevents overflow */
+  z-index: -1; /* Push the hero behind other content */
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -68,10 +88,7 @@
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;

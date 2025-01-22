@@ -1,0 +1,13 @@
+.footer {
+  height: 60px;
+  width: 100vw;
+  background-color: black;
+  border-top: 1px solid grey;
+  ul {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    list-style-type: none;
+  }
+}

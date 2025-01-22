@@ -1,9 +1,9 @@
 import Link from "next/link";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 export default function Header() {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <ul>
         <li>
           <Link href="/">Home</Link>
@@ -21,15 +21,15 @@ export default function Header() {
           <Link href="/travel-and-lodging">Travel & Lodging</Link>
         </li>
         <li>
-          <Link href="/RSVP">RSVP</Link>
+          <Link href="/rsvp">RSVP</Link>
         </li>
         <li>
-          <Link href="/Photos">Photos</Link>
+          <Link href="/photos">Photos</Link>
         </li>
         <li>
-          <Link href="/Registry">Registry</Link>
+          <Link href="/registry">Registry</Link>
         </li>
       </ul>
-    </div>
+    </header>
   );
 }

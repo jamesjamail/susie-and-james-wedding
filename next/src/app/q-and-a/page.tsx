@@ -1,10 +1,10 @@
 import styles from "../page.module.css";
 
-export default function About() {
+export default function QandA() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>About</h1>
+        <h1>Q & A</h1>
       </main>
     </div>
   );
