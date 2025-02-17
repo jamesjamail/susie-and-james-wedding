@@ -22,9 +22,8 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 10px;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
   overflow: hidden; /* Prevents overflow */
   z-index: -1; /* Push the hero behind other content */
 }
