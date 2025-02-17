@@ -1,7 +1,6 @@
 import styles from "./PhotoLibrary.module.css";
 import Image from "next/image";
 import fs from "fs";
-import path from "path";
 
 interface PhotoLibraryProps {
   imagesDirectory: string;
