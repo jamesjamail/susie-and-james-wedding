@@ -5,6 +5,7 @@ export default function RSVP() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>RSVP</h1>
+        <p>Coming soon!</p>
       </main>
     </div>
   );

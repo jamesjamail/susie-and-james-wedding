@@ -40,3 +40,13 @@ a {
     color-scheme: dark;
   }
 }
+
+main {
+  padding: 0 16px;
+  width: 100%;
+}
+
+h1 {
+  margin: 36px auto 16px auto;
+  text-align: center;
+}

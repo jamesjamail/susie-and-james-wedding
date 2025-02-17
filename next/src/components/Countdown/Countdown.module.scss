@@ -1,0 +1,44 @@
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2rem;
+  color: #333;
+}
+
+.numberTile {
+  display: inline-block;
+  background: #fff;
+  border: 2px solid #333;
+  padding: 12px 20px 8px;
+  margin: 0 5px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+}
+
+.numberTile::before,
+.numberTile::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+}
+
+.numberTile::before {
+  left: 10px;
+}
+
+.numberTile::after {
+  right: 10px;
+}
+
+.message {
+  color: var(--foreground);
+  font-size: 2rem;
+  margin-left: 10px;
+}

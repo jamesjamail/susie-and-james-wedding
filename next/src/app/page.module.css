@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column; /* Keep the column layout */
   align-items: center; /* Ensure children stretch to fill width */
-  justify-content: center; /* Distribute space evenly */
+  justify-content: flex-start; /* Distribute space evenly */
   min-height: 90svh; /* Full viewport height */
   /* height: 100vh; */
   margin: 0;

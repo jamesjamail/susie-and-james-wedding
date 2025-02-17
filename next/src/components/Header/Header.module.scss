@@ -1,13 +1,119 @@
+@import "../../app/styles/variables.scss";
+
 .header {
   height: 60px;
   width: 100vw;
   background-color: black;
   border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
   ul {
     padding: 20px 40px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     gap: 20px;
     list-style-type: none;
+    li {
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 10s ease;
+      border-radius: 5px;
+      position: relative;
+      overflow: hidden;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #333;
+        transition: width 0.7s ease;
+        z-index: 1;
+      }
+      &:hover:before {
+        width: 100%;
+      }
+      &:hover {
+        background-color: #333;
+      }
+      a {
+        position: relative;
+        z-index: 1;
+      }
+      .active {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger {
+  cursor: pointer;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+}
+
+.desktopNavLinks {
+  display: none;
+}
+
+.logo a {
+  display: none;
+}
+
+.fullScreenMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .hamburger {
+    display: none;
+  }
+
+  .logo a {
+    display: inline-block;
+  }
+
+  .desktopNavLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  ul.navLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 }
