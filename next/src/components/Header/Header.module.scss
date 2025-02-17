@@ -1,6 +1,7 @@
 @use "../../app/styles/variables.scss" as *;
 
 .header {
+  color: $foreground-color;
   height: 60px;
   width: 100vw;
   background-color: black;
