@@ -7,8 +7,13 @@ interface PhotoLibraryProps {
 }
 
 const PhotoLibrary: React.FC<PhotoLibraryProps> = ({ imagesDirectory }) => {
-  const imageFiles = fs.readdirSync(imagesDirectory);
+  const allFiles = fs.readdirSync(imagesDirectory);
 
+  const validImageExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+  const imageFiles = allFiles.filter((file) => {
+    const extension = file.slice(file.lastIndexOf(".")).toLowerCase();
+    return validImageExtensions.includes(extension);
+  });
   return (
     <div className={styles.grid}>
       {imageFiles.map((file, index) => (

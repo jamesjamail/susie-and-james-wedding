@@ -56,6 +56,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Arvo", Arial, Helvetica, sans-serif;
+  p {
+    font-size: 20px;
+  }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -86,5 +89,6 @@ h1 {
   margin: 36px auto 16px auto;
   text-align: center;
   font-family: "Genty", sans-serif;
-  font-size: 64px;
+  font-size: 72px;
+  font-weight: 400;
 }
