@@ -46,17 +46,34 @@
   width: 100%; /* Full width */
   overflow: hidden; /* Prevents overflow */
   z-index: -1; /* Push the hero behind other content */
+  opacity: 0.5;
+  filter: brightness(1.2) saturate(0.5); /* Adjust brightness and saturation */
 }
 
 .center {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 80px;
   color: black;
-  p {
-    max-width: 800px;
-  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.row > * {
+  flex: 1;
+}
+
+.heading {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 400px;
 }
 
 .green {
@@ -209,4 +226,20 @@ a.secondary {
   .logo {
     filter: invert();
   }
+}
+
+.page h1 {
+  padding-top: 100px;
+  margin-bottom: 0px;
+}
+
+.textbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.susieandjames {
+  line-height: 72px;
 }

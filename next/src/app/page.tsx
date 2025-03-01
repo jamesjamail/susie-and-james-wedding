@@ -11,7 +11,7 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.hero}>
         <Image
-          src="/images/IMG_4804.jpeg"
+          src="/Wallpaper.png"
           alt="Hero background"
           layout="fill"
           objectFit="cover"
@@ -20,25 +20,57 @@ export default function Home() {
         />
       </div>
       <main className={styles.center}>
-        <h1>
-          Susie<div className={styles.green}>&</div>James
-        </h1>
-        <p>
-          Are officially off the market! The countdown is on, and we can’t wait
-          to kick off our forever with YOU—one of our favorite people. Let’s
-          celebrate!
-        </p>
-        <h3>October 25th 2025 - Austin, TX</h3>
-        <h2>
-          <Countdown targetDate="2025-10-25" />
-        </h2>
+        <div className={styles.row}>
+          <div className={styles.center}>
+            <Image
+              src="/rings.png"
+              alt="Wedding rings"
+              width={400}
+              height={400}
+              priority
+            />
+          </div>
+          <div className={styles.textbox}>
+            <div className={styles.susieandjames}>
+              <h1>
+                Susie<div className={styles.green}>&</div>James
+              </h1>
+            </div>
 
-        <a href={googleCalendarUrl} target="_blank" rel="noopener noreferrer">
-          <button>Save The Date</button>
-        </a>
-        <a href={"/events/wedding.ics"} download>
-          <button>Download ICS File</button>
-        </a>
+            <p className={styles.heading}>
+              Are officially off the market! The countdown is on, and we can’t
+              wait to kick off our forever with YOU—one of our favorite people.
+              Let’s celebrate!
+            </p>
+          </div>
+        </div>
+        <div className={styles.row}>
+          <div className={styles.center}>
+            <h2>
+              <Countdown targetDate="2025-10-25" />
+            </h2>
+          </div>
+          <div className={styles.center}>
+            <h3>October 25th, 2025</h3>
+          </div>
+        </div>
+
+        <div className={styles.row}>
+          <div className={styles.center}>
+            <a
+              href={googleCalendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Save The Date</button>
+            </a>
+          </div>
+          <div className={styles.center}>
+            <a href={"/events/wedding.ics"} download>
+              <button>Download ICS File</button>
+            </a>
+          </div>
+        </div>
       </main>
     </div>
   );

@@ -1,33 +1,32 @@
+"use client";
+
 import styles from "./PhotoLibrary.module.css";
-import Image from "next/image";
-import fs from "fs";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 interface PhotoLibraryProps {
-  imagesDirectory: string;
+  imageFiles: string[];
 }
 
-const PhotoLibrary: React.FC<PhotoLibraryProps> = ({ imagesDirectory }) => {
-  const allFiles = fs.readdirSync(imagesDirectory);
-
-  const validImageExtensions = [".jpg", ".jpeg", ".png", ".gif"];
-  const imageFiles = allFiles.filter((file) => {
-    const extension = file.slice(file.lastIndexOf(".")).toLowerCase();
-    return validImageExtensions.includes(extension);
-  });
+const PhotoLibrary: React.FC<PhotoLibraryProps> = ({ imageFiles }) => {
   return (
-    <div className={styles.grid}>
-      {imageFiles.map((file, index) => (
-        <div key={index} className={styles.gridItem}>
-          <Image
-            src={`/images/photos-page-images/${file}`}
-            alt={`Photo ${index + 1}`}
-            width={300}
-            height={300}
-            className={styles.image}
-          />
-        </div>
-      ))}
-    </div>
+    <PhotoProvider>
+      <div className={styles.grid}>
+        {imageFiles.map((file, index) => (
+          <div key={index} className={styles.gridItem}>
+            <PhotoView src={`/images/photos-page-images/${file}`}>
+              <img
+                src={`/images/photos-page-images/${file}`}
+                alt={`Photo ${index + 1}`}
+                width={300}
+                height={300}
+                className={styles.image}
+              />
+            </PhotoView>
+          </div>
+        ))}
+      </div>
+    </PhotoProvider>
   );
 };
 
