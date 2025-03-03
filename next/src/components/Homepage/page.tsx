@@ -21,7 +21,7 @@ export default function Homepage() {
         <div className={styles.row}>
           <div className={styles.center}>
             <Image
-              src="/rings.png"
+              src="/wedding-rings.png"
               alt="Wedding rings"
               width={400}
               height={400}
