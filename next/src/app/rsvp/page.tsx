@@ -2,8 +2,8 @@ import styles from "../page.module.css";
 
 export default function RSVP() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div className={"page"}>
+      <main className={"main"}>
         <h1>RSVP</h1>
         <p>Coming soon!</p>
       </main>

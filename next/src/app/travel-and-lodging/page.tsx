@@ -2,8 +2,8 @@ import styles from "../page.module.css";
 
 export default function TravelAndLodging() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div className={"page"}>
+      <main className={"main"}>
         <h1>Travel & Lodging</h1>
         <p>
           Pecan Springs Ranch sits right on the edge of Dripping Springs, TX

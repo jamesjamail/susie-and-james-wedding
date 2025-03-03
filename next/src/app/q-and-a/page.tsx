@@ -1,5 +1,4 @@
 import FaqItem from "@/components/FaqItem/FaqItem";
-import styles from "../page.module.css";
 
 const faqData = [
   {
@@ -34,8 +33,8 @@ const faqData = [
 // should we rename this page FAQ?
 export default function QandA() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div className={"page"}>
+      <main className={"main"}>
         <h1>Q & A</h1>
         {faqData.map((item, index) => (
           <FaqItem key={index} question={item.question} answer={item.answer} />

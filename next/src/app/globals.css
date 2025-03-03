@@ -92,3 +92,70 @@ h1 {
   font-size: 72px;
   font-weight: 400;
 }
+
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: flex;
+  flex-direction: column; /* Keep the column layout */
+  align-items: center; /* Ensure children stretch to fill width */
+  justify-content: flex-start; /* Distribute space evenly */
+  min-height: 100vh; /* Full viewport height */
+  margin: 0;
+  padding: 0;
+
+  .button {
+    background-color: #5c8313;
+    color: white;
+    height: 60px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.15rem;
+  }
+
+  .h3 {
+    font-family: "Genty", sans-serif;
+    font-size: 36px;
+    font-weight: 100;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  grid-row-start: 2;
+}
+
+.main ol {
+  font-family: var(--font-geist-mono);
+  padding-left: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  list-style-position: inside;
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.main code {
+  font-family: inherit;
+  background: var(--gray-alpha-100);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
