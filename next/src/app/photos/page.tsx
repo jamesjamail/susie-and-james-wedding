@@ -3,7 +3,7 @@ import fs from "fs";
 import PhotoLibrary from "@/components/PhotoLibrary/PhotoLibrary";
 
 export const dynamic = "force-dynamic";
-export const runtime = "edge";
+export const runtime = "nodejs"; // Switch to Node.js runtime
 
 export default async function Photos() {
   const imagesDirectory = path.join(
