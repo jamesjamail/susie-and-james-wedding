@@ -5,10 +5,11 @@ BEGIN:VEVENT
 UID:uid1@example.com
 DTSTAMP:20231025T090000Z
 ORGANIZER;CN=Susie and James:MAILTO:organizer@example.com
-DTSTART:20251025T090000Z
-DTEND:20251025T170000Z
+DTSTART:20251025T210000Z
+DTEND:20251026T040000Z
 SUMMARY:Susie and James' Wedding
 DESCRIPTION:Join us for the wedding of Susie and James!
-LOCATION:Austin, TX
+LOCATION:Pecan Springs Ranch, Austin TX
+URL:www.susieandjameswedding.com
 END:VEVENT
 END:VCALENDAR

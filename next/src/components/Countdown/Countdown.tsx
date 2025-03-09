@@ -55,7 +55,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
   return (
     <div className={styles.countdown}>
-      {renderDays()}
+      <div>{renderDays()}</div>
       <span className={styles.message}>{message}</span>
     </div>
   );

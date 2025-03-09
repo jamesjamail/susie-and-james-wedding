@@ -1,7 +1,9 @@
+import styles from "./page.module.scss";
+
 export default function OurStory() {
   return (
-    <div className={"page"}>
-      <main className={"main"}>
+    <div className={styles.page}>
+      <main className={styles.main}>
         <h1>Our Story</h1>
         <p>
           Think back to the not-quite-post-COVID haze of 2021, when venturing

@@ -1,14 +1,19 @@
+@import "./styles/_variables.scss";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #{$background-color};
+  --foreground: #{$foreground-color};
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --tertiary-color: #{$tertiary-color};
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: $background-color;
     --foreground: #ededed;
   }
-}
+} */
 
 @font-face {
   font-family: "Genty";
@@ -81,16 +86,19 @@ a {
 }
 
 main {
-  padding: 0 22px;
+  padding: 0 6%;
   width: 100%;
 }
 
 h1 {
-  margin: 36px auto 16px auto;
+  @media (min-width: 768px) {
+    margin: 36px auto 16px auto;
+  }
   text-align: center;
   font-family: "Genty", sans-serif;
   font-size: 72px;
   font-weight: 400;
+  color: var(--primary-color);
 }
 
 .page {

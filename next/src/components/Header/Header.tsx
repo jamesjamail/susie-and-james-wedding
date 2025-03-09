@@ -15,6 +15,10 @@ export default function Header() {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
       setMenuOpen(false);
@@ -36,7 +40,11 @@ export default function Header() {
   const navLinks = (
     <ul className={styles.navLinks}>
       <li>
-        <Link href="/" className={pathname === "/" ? styles.active : ""}>
+        <Link
+          href="/"
+          className={pathname === "/" ? styles.active : ""}
+          onClick={closeMenu}
+        >
           Home
         </Link>
       </li>
@@ -44,6 +52,7 @@ export default function Header() {
         <Link
           href="/our-story"
           className={pathname === "/our-story" ? styles.active : ""}
+          onClick={closeMenu}
         >
           Our Story
         </Link>
@@ -52,6 +61,7 @@ export default function Header() {
         <Link
           href="/q-and-a"
           className={pathname === "/q-and-a" ? styles.active : ""}
+          onClick={closeMenu}
         >
           Q&A
         </Link>
@@ -60,41 +70,44 @@ export default function Header() {
         <Link
           href="/travel-and-lodging"
           className={pathname === "/travel-and-lodging" ? styles.active : ""}
+          onClick={closeMenu}
         >
           Travel & Lodging
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link
           href="/rsvp"
           className={pathname === "/rsvp" ? styles.active : ""}
+          onClick={closeMenu}
         >
           RSVP
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link
           href="/photos"
           className={pathname === "/photos" ? styles.active : ""}
+          onClick={closeMenu}
         >
           Photos
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link
           href="/registry"
           className={pathname === "/registry" ? styles.active : ""}
+          onClick={closeMenu}
         >
           Registry
         </Link>
-      </li>
+      </li> */}
     </ul>
   );
 
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link href="/">S & J</Link>
         <button className={styles.hamburger} onClick={toggleMenu}>
           <FaBars />
         </button>

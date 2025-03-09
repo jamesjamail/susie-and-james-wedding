@@ -1,9 +1,18 @@
 .faqItem {
-  margin: 20px 0;
-  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 4%;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: var(--background-color);
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 1s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.005);
+  }
 }
 
 .question {

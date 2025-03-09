@@ -39,6 +39,7 @@ export default function QandA() {
         {faqData.map((item, index) => (
           <FaqItem key={index} question={item.question} answer={item.answer} />
         ))}
+        <br />
       </main>
     </div>
   );
