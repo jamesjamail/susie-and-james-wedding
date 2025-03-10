@@ -31,7 +31,7 @@ const MessageSender: React.FC = () => {
       await axios.post("/api/contact", formData);
       setSuccess(true);
       setFormData({ name: "", email: "", message: "", humanityCheck: "" }); // Reset new field
-    } catch (err) {
+    } catch {
       setError("There was an error submitting your message. Please try again.");
     } finally {
       setIsSubmitting(false);

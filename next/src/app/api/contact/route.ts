@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
 interface RequestBody {
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       ],
     };
 
-    const response: AxiosResponse = await axios.post(
+    await axios.post(
       `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`,
       payload,
       {
@@ -83,12 +83,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     );
 
     return NextResponse.json({ message: "Success" }, { status: 200 });
-  } catch (error: any) {
-    if (error.response) {
-      console.error("Airtable API Error:", error.response.data);
-    } else {
-      console.error("Airtable API Error:", error.message);
-    }
+  } catch (error) {
+    console.error("Error saving data to Airtable:", error);
     return NextResponse.json({ message: "Error saving data" }, { status: 500 });
   }
 }
