@@ -13,10 +13,8 @@
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.7",
-    "axios": "^1.8.2",
     "classnames": "^2.5.1",
     "framer-motion": "^12.4.3",
-    "fs": "^0.0.1-security",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

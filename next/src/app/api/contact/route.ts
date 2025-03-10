@@ -1,4 +1,5 @@
-import axios from "axios";
+export const runtime = "edge";
+
 import { NextRequest, NextResponse } from "next/server";
 
 interface RequestBody {
@@ -57,8 +58,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const BASE_ID = process.env.AIRTABLE_BASE_ID as string;
     const TABLE_NAME = "Messages";
 
-    console.log(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`);
-
     const payload: AirtablePayload = {
       records: [
         {
@@ -71,16 +70,21 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       ],
     };
 
-    await axios.post(
+    const response = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`,
-      payload,
       {
+        method: "POST",
         headers: {
           Authorization: `Bearer ${AIRTABLE_API_KEY}`,
           "Content-Type": "application/json",
         },
+        body: JSON.stringify(payload),
       }
     );
+
+    if (!response.ok) {
+      throw new Error(`Error saving data: ${response.statusText}`);
+    }
 
     return NextResponse.json({ message: "Success" }, { status: 200 });
   } catch (error) {
