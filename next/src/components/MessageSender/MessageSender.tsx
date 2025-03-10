@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
 import styles from "./MessageSender.module.scss";
 
 const MessageSender: React.FC = () => {
@@ -28,7 +27,18 @@ const MessageSender: React.FC = () => {
     setSuccess(false);
 
     try {
-      await axios.post("/api/contact", formData);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
       setSuccess(true);
       setFormData({ name: "", email: "", message: "", humanityCheck: "" }); // Reset new field
     } catch {
