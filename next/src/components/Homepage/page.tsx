@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useClickAway } from "react-use";
 import styles from "./Homepage.module.scss";
-import Image from "next/image";
 import Countdown from "@/components/Countdown/Countdown";
 import classNames from "classnames";
 
