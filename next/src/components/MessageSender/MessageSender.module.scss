@@ -1,0 +1,47 @@
+@use "../../app/styles/variables.scss" as *;
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+    input,
+    textarea {
+      background-color: #fff;
+      box-shadow: $primary-color 0px 0px 0px 1px inset;
+      width: 100%;
+      max-width: 100%;
+      color: $foreground-color;
+    }
+    input {
+      height: 40px;
+      padding: 5px 10px;
+    }
+    textarea {
+      height: 200px;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+    .button {
+      background-color: #5c8313;
+      color: white;
+      height: 60px;
+      padding: 5px 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 16px;
+      border: 2px solid black;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.15rem;
+    }
+  }
+  p {
+    text-align: center;
+  }
+}

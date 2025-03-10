@@ -93,6 +93,15 @@ export default function Header() {
           Photos
         </Link>
       </li>
+      <li>
+        <Link
+          href="/get-in-touch"
+          className={pathname === "/get-in-touch" ? styles.active : ""}
+          onClick={closeMenu}
+        >
+          Get In Touch
+        </Link>
+      </li>
       {/* <li>
         <Link
           href="/registry"

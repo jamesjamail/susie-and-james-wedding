@@ -79,6 +79,7 @@
   align-items: center;
   background-color: $foreground-color;
   color: $background-color;
+  padding: 0;
 }
 
 .desktopNavLinks {
@@ -98,7 +99,8 @@
   background-color: $background-color;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 180px;
   z-index: 1000;
   text-align: center;
   font-size: 24px;
