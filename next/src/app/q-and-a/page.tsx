@@ -35,7 +35,8 @@ const faqData = [
     question: "Will there be a hotel block?",
     answer: (
       <span>
-        No, but we recommend the following hotels:{" "}
+        No, but we recommend the following hotels if you wish to stay close to
+        the venue:{" "}
         <a
           href="https://www.hilton.com/en/hotels/ausohhx-hampton-austin-oak-hill/"
           target="_blank"

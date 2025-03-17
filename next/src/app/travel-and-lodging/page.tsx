@@ -26,7 +26,7 @@ export default function TravelAndLodging() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Hampton Inn{" "}
+            Hampton Inn
           </a>
           ,{" "}
           <a
@@ -70,8 +70,39 @@ export default function TravelAndLodging() {
           Austin.
         </p>
         <p>
-          Austin boutique hotels we love: The Line, The Driskill, Carpenter,
-          Hotel Van Zandt.
+          Austin boutique hotels we love:{" "}
+          <a
+            href="https://www.thelinehotel.com/austin/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Line
+          </a>
+          ,{" "}
+          <a
+            href="https://driskillhotel.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Driskill
+          </a>
+          ,{" "}
+          <a
+            href="https://www.bunkhousehotels.com/carpenter-hotel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Carpenter
+          </a>
+          ,{" "}
+          <a
+            href="https://www.hotelvanzandt.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hotel Van Zandt
+          </a>
+          .
         </p>
       </main>
     </div>
