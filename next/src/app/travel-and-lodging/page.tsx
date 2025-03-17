@@ -20,8 +20,47 @@ export default function TravelAndLodging() {
           Hamilton Pool.
         </p>
         <p>
-          Hotels near the venue: Hampton Inn, Sleep Inn, Sontesta, Residence
-          Inn, and A Loft Hotel.
+          Hotels near the venue:{" "}
+          <a
+            href="https://www.hilton.com/en/hotels/ausohhx-hampton-austin-oak-hill/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hampton Inn{" "}
+          </a>
+          ,{" "}
+          <a
+            href="https://www.choicehotels.com/texas/dripping-springs/sleep-inn-hotels/txe80?mc=llgoxxpx"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sleep Inn
+          </a>
+          ,{" "}
+          <a
+            href="https://www.sonesta.com/sonesta-simply-suites/tx/austin/sonesta-simply-suites-austin-south"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sontesta
+          </a>
+          ,{" "}
+          <a
+            href="https://www.marriott.com/en-us/hotels/auswe-residence-inn-austin-southwest/overview/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Residence Inn
+          </a>
+          , and{" "}
+          <a
+            href="https://www.marriott.com/en-us/hotels/auswa-aloft-austin-southwest/overview/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            A Loft Hotel
+          </a>
+          .
         </p>
         <p>
           If you’re more of a city rat craving live music, a two-stepping jaunt,

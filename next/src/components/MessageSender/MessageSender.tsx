@@ -77,7 +77,9 @@ const MessageSender: React.FC = () => {
         </div>
         <div>
           <h3>PROVE YOUR HUMANITY</h3>
-          <label htmlFor="humanityCheck">Where is the wedding happening?</label>
+          <label htmlFor="humanityCheck">
+            What city is the wedding taking place in?
+          </label>
           <input
             type="text"
             id="humanityCheck"
