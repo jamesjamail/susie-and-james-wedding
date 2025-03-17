@@ -3,6 +3,7 @@
 import styles from "./PhotoLibrary.module.scss";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import Image from "next/image";
 
 const imageFiles = [
   "CB8F5806-5D10-42CF-9B49-2F409041A588.JPG",
@@ -26,7 +27,7 @@ const PhotoLibrary: React.FC = () => {
         {imageFiles.map((file, index) => (
           <div key={index} className={styles.gridItem}>
             <PhotoView src={`/images/photos-page-images/${file}`}>
-              <img
+              <Image
                 src={`/images/photos-page-images/${file}`}
                 alt={`Photo ${index + 1}`}
                 width={300}
