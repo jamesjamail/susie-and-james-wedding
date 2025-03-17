@@ -77,8 +77,8 @@ const faqData = [
         </a>
         .
         <br />
-        There are also lots of great Airbnbs in the area if you&apos;re looking
-        for something different.
+        There are also lots of great Airbnbs in the area if you're looking for
+        something different.
       </span>
     ),
   },
