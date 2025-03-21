@@ -58,7 +58,7 @@ const faqData = [
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sontesta
+          Sonesta
         </a>
         ,{" "}
         <a
