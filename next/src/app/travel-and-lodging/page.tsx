@@ -42,7 +42,7 @@ export default function TravelAndLodging() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Sontesta
+            Sonesta
           </a>
           ,{" "}
           <a
