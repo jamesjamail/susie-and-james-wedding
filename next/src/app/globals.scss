@@ -123,7 +123,7 @@ h1 {
   padding: 0;
 }
 
-button {
+:not(.react-photo-album--track) button {
   background-color: #5c8313;
   color: white;
   height: 60px;
