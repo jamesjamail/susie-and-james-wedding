@@ -42,6 +42,7 @@ export default function Homepage() {
     <div className={styles.page}>
       <div className={styles.hero} />
       <main className={styles.center}>
+        {/* TODO: add hero img */}
         <div className={styles.row}>
           <div className={styles.textbox}>
             <div className={styles.susieandjames}>

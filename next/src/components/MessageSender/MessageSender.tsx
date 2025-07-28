@@ -28,7 +28,7 @@ const MessageSender: React.FC = () => {
 
     try {
       const response = await fetch(
-        "https://aged-sea-7902.javascriptjames89.workers.dev/",
+        "https://aged-sea-7902.javascriptjames89.workers.dev/get-in-touch",
         {
           method: "POST",
           headers: {
