@@ -304,6 +304,16 @@ a.secondary {
   h1 {
     color: $foreground-color;
   }
+  @media (min-width: $mobile-breakpoint) {
+    h1 {
+      margin-left: 40px;
+    }
+    div {
+      display: inline-block;
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+  }
 }
 
 .modal {
