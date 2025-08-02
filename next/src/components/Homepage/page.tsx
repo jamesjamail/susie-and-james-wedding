@@ -47,6 +47,7 @@ export default function Homepage() {
           className={styles.heroImg}
         />
       </div>
+      <hr className={styles.hr} />
       <div className={styles.hero} />
       <main className={styles.center}>
         
