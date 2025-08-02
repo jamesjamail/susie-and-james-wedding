@@ -121,10 +121,6 @@
   font-weight: 500;
 }
 
-.green {
-  color: #5c8313;
-}
-
 .details {
   text-align: center;
   width: 100%;
@@ -250,11 +246,6 @@ a.secondary {
 }
 
 @media (max-width: $mobile-breakpoint) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
   .main {
     align-items: center;
   }
@@ -299,24 +290,25 @@ a.secondary {
   margin-bottom: 0px;
 }
 
-.page {
-  min-height: 100vh;
+.page main {
   position: relative;
   padding-bottom: 80px;
+  @media (max-width: $mobile-breakpoint) {
+    min-height: 100vh; /* Ensure the main section takes full height on mobile */
+  }
 }
 
-.page::before {
+.page main::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.5; /* adjust to taste */
+  opacity: 0.5;
   z-index: -1; /* Push the hero behind other content */
   background-image: url("/Wallpaper.png");
   background-size: 50vw 50vw; /* Smaller background image */
   background-repeat: repeat; /* Repeat the background image */
   @media (max-width: $mobile-breakpoint) {
     background-size: 500px 500px; /* Smaller background image */
-    bottom: -700px;
   }
 }
 
@@ -334,13 +326,10 @@ a.secondary {
     color: $foreground-color;
   }
   @media (min-width: $mobile-breakpoint) {
-    h1 {
-      margin-left: 40px;
-    }
     div {
       display: inline-block;
-      margin-left: 60px;
-      margin-right: 60px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
   }
 }

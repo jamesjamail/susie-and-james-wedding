@@ -55,7 +55,7 @@ export default function Homepage() {
           <div className={styles.textbox}>
             <div className={styles.susieandjames}>
               <h1>
-                Susie<div className={styles.green}>&</div>James
+                Susie<div>&</div>James
               </h1>
             </div>
             <div className={styles.textWithBackground}>
