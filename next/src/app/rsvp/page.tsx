@@ -1,13 +1,32 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+type Invitee = {
+  id: string;
+  fields: {
+    guest_1_name: string;
+    guest_2_name?: string;
+    invited_to_prdd?: boolean;
+  };
+};
+
+type Guest = {
+  name: string;
+  attendingWedding: string;
+  attendingPRDD: string;
+  email: string;
+  dietary: string;
+  notes: string;
+};
+
+type FieldError = {
+  attendingWedding: boolean;
+  attendingPRDD: boolean;
+  email: boolean;
+};
 import styles from "./page.module.scss";
 
-const EVENTS_TABLE = "Events";
-const RSVPS_TABLE = "RSVPs";
-
-      
-async function fetchAllInvitees() {
+async function fetchAllInvitees(): Promise<Invitee[]> {
   const res = await fetch(
     "https://aged-sea-7902.javascriptjames89.workers.dev/get-invitees",
     {
@@ -19,28 +38,28 @@ async function fetchAllInvitees() {
   const data = await res.json();
   // Use invitees key, filter out empty fields or missing guest_1_name
   return (data.invitees || []).filter(
-    (inv: any) => inv.fields && inv.fields.guest_1_name
+    (inv: Invitee) => inv.fields && inv.fields.guest_1_name
   );
 }
 
 function RSVP() {
-  const [nameQuery, setNameQuery] = useState("");
-  const [allInvitees, setAllInvitees] = useState<any[]>([]);
-  const [inviteeOptions, setInviteeOptions] = useState<any[]>([]);
-  const [selectedInvitee, setSelectedInvitee] = useState<any>(null);
+  const [nameQuery, setNameQuery] = useState<string>("");
+  const [allInvitees, setAllInvitees] = useState<Invitee[]>([]);
+  const [inviteeOptions, setInviteeOptions] = useState<Invitee[]>([]);
+  const [selectedInvitee, setSelectedInvitee] = useState<Invitee | null>(null);
   // RSVP state per guest
-  const [guests, setGuests] = useState<any[]>([]);
+  const [guests, setGuests] = useState<Guest[]>([]);
   const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false); // removed unused variable
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formErrors, setFormErrors] = useState<string[]>([]);
-  const [fieldErrors, setFieldErrors] = useState<any[]>([]);
+  const [fieldErrors, setFieldErrors] = useState<FieldError[]>([]);
   // Humanity Check field (for the whole form)
-  const [humanityCheck, setHumanityCheck] = useState("");
+  const [humanityCheck, setHumanityCheck] = useState<string>("");
 
   // Fetch all invitees once on mount
   useEffect(() => {
-    fetchAllInvitees().then((records) => setAllInvitees(records));
+    fetchAllInvitees().then((records: Invitee[]) => setAllInvitees(records));
   }, []);
 
   // Filter invitees client-side for autocomplete
@@ -50,7 +69,7 @@ function RSVP() {
       return;
     }
     const filtered = allInvitees.filter(
-      (inv) => {
+      (inv: Invitee) => {
         const party = [inv.fields.guest_1_name, inv.fields.guest_2_name].filter(Boolean).join(" & ");
         return party.toLowerCase().includes(nameQuery.toLowerCase());
       }
@@ -64,7 +83,7 @@ function RSVP() {
       setGuests([]);
       return;
     }
-    const guestNames = [selectedInvitee.fields.guest_1_name, selectedInvitee.fields.guest_2_name].filter(Boolean);
+    const guestNames = [selectedInvitee.fields.guest_1_name, selectedInvitee.fields.guest_2_name].filter((n): n is string => typeof n === "string" && n.length > 0);
     setGuests(
       guestNames.map((name) => ({
         name,
@@ -78,19 +97,19 @@ function RSVP() {
     setFieldErrors(guestNames.map(() => ({ attendingWedding: false, attendingPRDD: false, email: false })));
   }, [selectedInvitee]);
 
-  const getPartyName = (invitee: any) => {
+  const getPartyName = (invitee: Invitee | null) => {
     if (!invitee) return "";
     return [invitee.fields.guest_1_name, invitee.fields.guest_2_name].filter(Boolean).join(" & ");
   };
 
   // Handlers for per-guest RSVP fields
-  const handleGuestFieldChange = (idx: number, field: string, value: string) => {
-    setGuests((prev) => {
+  const handleGuestFieldChange = (idx: number, field: keyof Guest, value: string) => {
+    setGuests((prev: Guest[]) => {
       const updated = [...prev];
       updated[idx] = { ...updated[idx], [field]: value };
       return updated;
     });
-    setFieldErrors((prev) => {
+    setFieldErrors((prev: FieldError[]) => {
       if (!prev[idx]) return prev;
       const updated = [...prev];
       updated[idx] = { ...updated[idx], [field]: false };
@@ -99,26 +118,26 @@ function RSVP() {
   };
 
   const [submitError, setSubmitError] = useState("");
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormErrors([]);
     setSubmitError("");
-    let errors: string[] = [];
+    const errors: string[] = [];
     let hasError = false;
     // Humanity check: only require that it is populated
     if (!humanityCheck || humanityCheck.trim() === "") {
       errors.push("Please answer the humanity check question.");
       hasError = true;
     }
-    const newFieldErrors = guests.map((guest, idx) => {
-      const fieldErrs: any = { attendingWedding: false, attendingPRDD: false, email: false };
+    const newFieldErrors: FieldError[] = guests.map((guest) => {
+      const fieldErrs: FieldError = { attendingWedding: false, attendingPRDD: false, email: false };
       // Wedding RSVP required
       if (!guest.attendingWedding) {
         fieldErrs.attendingWedding = true;
         hasError = true;
       }
       // PRDD RSVP required if invited
-      if (selectedInvitee.fields.invited_to_prdd && !guest.attendingPRDD) {
+      if (selectedInvitee && selectedInvitee.fields.invited_to_prdd && !guest.attendingPRDD) {
         fieldErrs.attendingPRDD = true;
         hasError = true;
       }
@@ -162,16 +181,16 @@ function RSVP() {
       const result = await response.json();
       if (!response.ok) {
         setSubmitSuccess(false);
-        setSubmitted(false);
+        // setSubmitted(false); // removed unused variable
         // Show error from server if available
         setSubmitError(result?.message || "Sorry, there was a problem submitting your RSVP. Please try again or contact us for help.");
       } else {
         setSubmitSuccess(true);
-        setSubmitted(true);
+        // setSubmitted(true); // removed unused variable
       }
-    } catch (err) {
+    } catch (error) {
+      console.error("Error submitting RSVP:", error);
       setSubmitSuccess(false);
-      setSubmitted(false);
       setSubmitError("Sorry, there was a problem submitting your RSVP. Please try again or contact us for help.");
     }
     setSubmitting(false);
@@ -197,16 +216,15 @@ function RSVP() {
                 id="invitee-search"
                 type="text"
                 value={nameQuery}
-                onChange={(e) => {
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   setNameQuery(e.target.value);
-                  setSubmitted(false);
                 }}
                 autoComplete="off"
                 placeholder="Enter your name"
               />
               {inviteeOptions.length > 0 && (
                 <ul className={styles.inviteeOptions}>
-                  {inviteeOptions.map((inv) => (
+                  {inviteeOptions.map((inv: Invitee) => (
                     <li
                       key={inv.id}
                       className={styles.inviteeOption}
@@ -243,7 +261,7 @@ function RSVP() {
                               rel="noopener noreferrer"
                               className={styles.eventLocationLink}
                             >
-                              Headliner's Club
+                              Headliner&apos;s Club
                             </a>
                           </div>
                         </div>

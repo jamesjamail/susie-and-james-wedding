@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import PhotoAlbum, { RowsPhotoAlbum } from "react-photo-album";
+import PhotoAlbum from "react-photo-album";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { Fullscreen } from "yet-another-react-lightbox/plugins";
