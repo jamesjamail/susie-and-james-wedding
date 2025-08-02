@@ -32,6 +32,9 @@ const photos = [
   { src: "/images/photos-page-images/IMG_4243.jpg", width: 4, height: 3 },
   { src: "/images/photos-page-images/IMG_7211.jpg", width: 4, height: 3 },
   { src: "/images/photos-page-images/image000001.JPG", width: 4, height: 3 },
+  { src: "/images/photos-page-images/A_0042.jpg", width: 4, height: 3 },
+  { src: "/images/photos-page-images/SP_0013.jpg", width: 4, height: 3 },
+  { src: "/images/photos-page-images/SP_0017.jpg", width: 4, height: 3 },
 ];
 
 const PhotoLibrary = () => {

@@ -1,3 +1,19 @@
+@use "../../app/styles/variables.scss" as *;
+
+// Error message styling for RSVP form
+.formErrors {
+  color: #c00;
+  margin-bottom: 18px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.1em;
+  white-space: pre-line;
+}
+.formErrorLine {
+  margin-bottom: 6px;
+  display: block;
+}
+
 .errorPage {
   display: flex;
   flex-direction: column;
@@ -8,6 +24,7 @@
   background: #fff5f5;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(200,0,0,0.08);
+  margin-bottom: 20px;
 }
 .errorPage h2 {
   color: #c00;
@@ -63,6 +80,17 @@
   background: #e5e7eb;
   padding: 4px 14px;
   border-radius: 8px;
+  @media (max-width: $mobile-breakpoint) {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 20px;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
 }
 .partyGreeting {
   margin-bottom: 20px;

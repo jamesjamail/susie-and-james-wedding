@@ -40,9 +40,16 @@ export default function Homepage() {
 
   return (
     <div className={styles.page}>
+      <div className={styles.heroImageContainer}>
+        <img
+          src="/images/SP_0014_Header.jpg"
+          alt="Susie and James on a swing with their dogs in a green field"
+          className={styles.heroImg}
+        />
+      </div>
       <div className={styles.hero} />
       <main className={styles.center}>
-        {/* TODO: add hero img */}
+        
         <div className={styles.row}>
           <div className={styles.textbox}>
             <div className={styles.susieandjames}>

@@ -33,8 +33,10 @@ function RSVP() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [formError, setFormError] = useState("");
+  const [formErrors, setFormErrors] = useState<string[]>([]);
   const [fieldErrors, setFieldErrors] = useState<any[]>([]);
+  // Humanity Check field (for the whole form)
+  const [humanityCheck, setHumanityCheck] = useState("");
 
   // Fetch all invitees once on mount
   useEffect(() => {
@@ -99,31 +101,41 @@ function RSVP() {
   const [submitError, setSubmitError] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormError("");
+    setFormErrors([]);
     setSubmitError("");
+    let errors: string[] = [];
     let hasError = false;
+    // Humanity check: only require that it is populated
+    if (!humanityCheck || humanityCheck.trim() === "") {
+      errors.push("Please answer the humanity check question.");
+      hasError = true;
+    }
     const newFieldErrors = guests.map((guest, idx) => {
-      const errors: any = { attendingWedding: false, attendingPRDD: false, email: false };
+      const fieldErrs: any = { attendingWedding: false, attendingPRDD: false, email: false };
       // Wedding RSVP required
       if (!guest.attendingWedding) {
-        errors.attendingWedding = true;
+        fieldErrs.attendingWedding = true;
         hasError = true;
       }
       // PRDD RSVP required if invited
       if (selectedInvitee.fields.invited_to_prdd && !guest.attendingPRDD) {
-        errors.attendingPRDD = true;
+        fieldErrs.attendingPRDD = true;
         hasError = true;
       }
       // Email required and must be valid
       if (!guest.email || !/^\S+@\S+\.\S+$/.test(guest.email)) {
-        errors.email = true;
+        fieldErrs.email = true;
         hasError = true;
       }
-      return errors;
+      return fieldErrs;
     });
     setFieldErrors(newFieldErrors);
+    // Add a single error for missing/invalid guest fields
+    if (guests.length > 0 && newFieldErrors.some(f => f.attendingWedding || f.attendingPRDD || f.email)) {
+      errors.push("Please complete all required fields for each guest.\nMake sure to select attending/not attending for each event and enter a valid email address.");
+    }
     if (hasError) {
-      setFormError("Please complete all required fields for each guest. Make sure to select attending/not attending for each event and enter a valid email address.");
+      setFormErrors(errors);
       return;
     }
     setSubmitting(true);
@@ -142,12 +154,17 @@ function RSVP() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(guestPayload),
+        body: JSON.stringify({
+          humanityCheck,
+          data: guestPayload,
+        }),
       });
+      const result = await response.json();
       if (!response.ok) {
         setSubmitSuccess(false);
         setSubmitted(false);
-        setSubmitError("Sorry, there was a problem submitting your RSVP. Please try again or contact us for help.");
+        // Show error from server if available
+        setSubmitError(result?.message || "Sorry, there was a problem submitting your RSVP. Please try again or contact us for help.");
       } else {
         setSubmitSuccess(true);
         setSubmitted(true);
@@ -164,13 +181,7 @@ function RSVP() {
     <div className="page">
       <main className="main">
         <h1>R S V P</h1>
-        {submitError ? (
-          <div className={styles.errorPage}>
-            <h2>RSVP Submission Error</h2>
-            <p>{submitError}</p>
-            <button className={styles.submitBtn} onClick={() => setSubmitError("")}>Try Again</button>
-          </div>
-        ) : submitSuccess ? (
+        {submitSuccess ? (
           <div className={styles.successPage}>
             <h2>Thanks for your RSVP.</h2>
             <p>
@@ -213,11 +224,7 @@ function RSVP() {
           ) : (
             <form onSubmit={handleSubmit} className={styles.rsvpForm}>
               <h2 className={styles.partyGreeting}>Hello, {getPartyName(selectedInvitee)}!</h2>
-              {formError && (
-                <div style={{ color: "#c00", marginBottom: "18px", textAlign: "center", fontWeight: 500 }}>
-                  {formError}
-                </div>
-              )}
+
               {guests.map((guest, idx) => {
                 const isInvitedToPRDD = Boolean(selectedInvitee.fields.invited_to_prdd);
                 return (
@@ -313,7 +320,7 @@ function RSVP() {
                         Not Attending
                       </label>
                     </div>
-                    <label htmlFor={`email-${idx}`}><strong>Email</strong></label>
+                    <label htmlFor={`email-${idx}`}><strong>Email*</strong></label>
                     <input
                       id={`email-${idx}`}
                       type="email"
@@ -344,9 +351,42 @@ function RSVP() {
                   </div>
                 );
               })}
+              {/* Humanity Check field (for the whole form) */}
+              <div className={styles.eventCard}>
+                <label htmlFor="humanity-check">
+                  <strong>Prove your humanity<span>*</span></strong>
+                </label>
+                <input
+                  id="humanity-check"
+                  type="text"
+                  className={styles.styledInput}
+                  value={humanityCheck}
+                  onChange={(e) => setHumanityCheck(e.target.value)}
+                  placeholder="What city is the wedding taking place in?"
+                  style={formErrors.some(e => e.toLowerCase().includes('humanity check')) ? { border: "2px solid #c00" } : {}}
+                  autoComplete="off"
+                />
+              </div>
+              {/* Render all form validation errors and submitError, each on a new line with consistent styling */}
+              {(formErrors.length > 0 || submitError) && (
+                <div className={styles.formErrors}>
+                  {formErrors.map((err, i) => (
+                    <span key={i} className={styles.formErrorLine}>{err}</span>
+                  ))}
+                  {submitError && <span className={styles.formErrorLine}>{submitError}</span>}
+                </div>
+              )}
+              {/* Move errorPage here, below RSVP inputs and above submit button */}
+              {submitError && (
+                <div className={styles.errorPage}>
+                  <h2>RSVP Submission Error</h2>
+                  <p>{submitError}</p>
+                  <button className={styles.submitBtn} onClick={() => setSubmitError("")}>Try Again</button>
+                </div>
+              )}
               <div className={styles.submitContainer}>
                 <button type="button" className={styles.changeNameBtn} onClick={() => setSelectedInvitee(null)}>
-                  Not you? Change name
+                  Go Back
                 </button>
                 <button type="submit" className={styles.submitBtn} disabled={submitting}>
                   {submitting ? "Submitting..." : "Submit RSVP"}

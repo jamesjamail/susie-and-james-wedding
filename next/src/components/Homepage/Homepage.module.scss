@@ -1,21 +1,17 @@
 @use "../../app/styles/variables.scss" as *;
 
-.hero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: -300px;
-  width: 100%; /* Full width */
-  // overflow: hidden; /* Prevents overflow */
-  z-index: -1; /* Push the hero behind other content */
-  opacity: 0.5;
-  background-image: url("/Wallpaper.png");
-  background-size: 50vw 50vw; /* Smaller background image */
-  background-repeat: repeat; /* Repeat the background image */
+.heroImg {
+  width: 100vw;
+  height: auto;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  object-fit: cover;
+  opacity: 1;
+  border-bottom: 1px solid $primary-color;
+}
+
+.heroImageContainer {
   @media (max-width: $mobile-breakpoint) {
-    background-size: 500px 500px; /* Smaller background image */
-    bottom: -700px;
+    display: none;;
   }
 }
 
@@ -83,7 +79,7 @@
 }
 
 .row:first-of-type {
-  margin-top: 40px; /* Apply margin-top to the first instance of .row */
+  margin-top: 60px; /* Apply margin-top to the first instance of .row */
 }
 
 .row > * {
@@ -272,6 +268,27 @@ a.secondary {
 
 .page h1 {
   margin-bottom: 0px;
+}
+
+.page {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.5; /* adjust to taste */
+  z-index: -1; /* Push the hero behind other content */
+  background-image: url("/Wallpaper.png");
+  background-size: 50vw 50vw; /* Smaller background image */
+  background-repeat: repeat; /* Repeat the background image */
+  @media (max-width: $mobile-breakpoint) {
+    background-size: 500px 500px; /* Smaller background image */
+    bottom: -700px;
+  }
 }
 
 .textbox {
