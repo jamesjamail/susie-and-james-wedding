@@ -135,10 +135,21 @@
   margin-top: 8px;
   margin-bottom: 10px;
   transition: border-color 0.2s;
+  font-family: inherit;
 }
 .styledInput:focus {
   border-color: var(--primary-color);
   outline: none;
+}
+
+select.styledInput {
+  font-family: inherit;
+  color: #444;
+}
+select.styledInput option {
+  font-family: inherit;
+  color: #444;
+  font-size: 1em;
 }
 .styledTextarea {
   width: 100%;
@@ -151,6 +162,7 @@
   margin-top: 8px;
   margin-bottom: 10px;
   transition: border-color 0.2s;
+  font-family: inherit;
 }
 .styledTextarea:focus {
   border-color: var(--primary-color);;
@@ -318,9 +330,9 @@
   align-items: center;
   gap: 40px;
 
-//   button {
-//     height: 80px;
-//   }
+  button {
+    min-width: 170px;
+  }
 //   flex-direction: row;
 //   align-items: center;
 //   margin-top: 20px;

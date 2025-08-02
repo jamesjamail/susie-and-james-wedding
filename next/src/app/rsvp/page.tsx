@@ -23,6 +23,7 @@ type FieldError = {
   attendingWedding: boolean;
   attendingPRDD: boolean;
   email: boolean;
+  dietary: boolean;
 };
 import styles from "./page.module.scss";
 
@@ -94,7 +95,7 @@ function RSVP() {
         notes: "",
       }))
     );
-    setFieldErrors(guestNames.map(() => ({ attendingWedding: false, attendingPRDD: false, email: false })));
+    setFieldErrors(guestNames.map(() => ({ attendingWedding: false, attendingPRDD: false, email: false, dietary: false })));
   }, [selectedInvitee]);
 
   const getPartyName = (invitee: Invitee | null) => {
@@ -130,7 +131,7 @@ function RSVP() {
       hasError = true;
     }
     const newFieldErrors: FieldError[] = guests.map((guest) => {
-      const fieldErrs: FieldError = { attendingWedding: false, attendingPRDD: false, email: false };
+      const fieldErrs: FieldError = { attendingWedding: false, attendingPRDD: false, email: false, dietary: false };
       // Wedding RSVP required
       if (!guest.attendingWedding) {
         fieldErrs.attendingWedding = true;
@@ -144,6 +145,12 @@ function RSVP() {
       // Email required and must be valid
       if (!guest.email || !/^\S+@\S+\.\S+$/.test(guest.email)) {
         fieldErrs.email = true;
+        hasError = true;
+      }
+      // Dietary restriction required
+      if (!guest.dietary || guest.dietary === "") {
+        fieldErrs.dietary = true;
+        errors.push("Please select a dietary restriction for each guest.");
         hasError = true;
       }
       return fieldErrs;
@@ -349,15 +356,19 @@ function RSVP() {
                       style={fieldErrors[idx]?.email ? { border: "2px solid #c00" } : {}}
                     />
                     <label htmlFor={`dietary-${idx}`}><strong>Dietary Restrictions</strong></label>
-                    <input
+                    <select
                       id={`dietary-${idx}`}
-                      type="text"
-                      className={styles.styledInput}
+                      className={`${styles.styledInput} ${fieldErrors[idx]?.dietary ? styles.fieldError : ""}`}
                       value={guest.dietary}
                       onChange={(e) => handleGuestFieldChange(idx, "dietary", e.target.value)}
-                      placeholder="Let us know if you have any dietary restrictions"
                       disabled={guest.attendingWedding === "Not Attending"}
-                    />
+                    >
+                      <option value="">Select dietary restriction</option>
+                      <option value="none">None</option>
+                      <option value="vegan">Vegan</option>
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="gluten free">Gluten Free</option>
+                    </select>
                     <label htmlFor={`notes-${idx}`}><strong>Anything else we should know?</strong></label>
                     <textarea
                       id={`notes-${idx}`}
