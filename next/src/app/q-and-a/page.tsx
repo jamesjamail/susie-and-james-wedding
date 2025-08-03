@@ -5,8 +5,7 @@ const faqData = [
     question: "What is the date and time of the wedding ceremony?",
     answer: (
       <span>
-        Late afternoon/evening on Saturday, October 25th, 2025. Exact details
-        will be shared closer to the big day—stay tuned!
+        Arrive at 5:00pm Saturday, October 25th, 2025. Ceremony starts promptly at 5:30pm. Cocktail hour and reception to follow.
       </span>
     ),
   },
@@ -26,8 +25,7 @@ const faqData = [
     question: "When do we RSVP?",
     answer: (
       <span>
-        Keep an eye on your mailbox for our formal invite, arriving in August or
-        September 2025. It’ll have all the details for RSVP-ing officially.
+        Please RSVP by September 21st, 2025. You can RSVP <a href="/rsvp">here</a>.
       </span>
     ),
   },

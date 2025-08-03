@@ -50,6 +50,15 @@ export default function Header() {
       </li>
       <li>
         <Link
+          href="/rsvp"
+          className={pathname === "/rsvp" ? styles.active : ""}
+          onClick={closeMenu}
+        >
+          RSVP
+        </Link>
+      </li>
+      <li>
+        <Link
           href="/our-story"
           className={pathname === "/our-story" ? styles.active : ""}
           onClick={closeMenu}
@@ -75,15 +84,6 @@ export default function Header() {
           Travel & Lodging
         </Link>
       </li>
-      {/* <li>
-        <Link
-          href="/rsvp"
-          className={pathname === "/rsvp" ? styles.active : ""}
-          onClick={closeMenu}
-        >
-          RSVP
-        </Link>
-      </li> */}
       <li>
         <Link
           href="/photos"
@@ -102,15 +102,16 @@ export default function Header() {
           Get In Touch
         </Link>
       </li>
-      {/* <li>
+      <li>
         <Link
-          href="/registry"
+          href="https://www.zola.com/registry/jamesandsusie2025"
           className={pathname === "/registry" ? styles.active : ""}
           onClick={closeMenu}
+          target="_blank" rel="noopener noreferrer"
         >
           Registry
         </Link>
-      </li> */}
+      </li>
     </ul>
   );
 
