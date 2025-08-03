@@ -8,13 +8,6 @@
   --tertiary-color: #{$tertiary-color};
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: $background-color;
-    --foreground: #ededed;
-  }
-} */
-
 @font-face {
   font-family: "Genty";
   src: url("/fonts/GentyDemo-Regular.otf") format("opentype"),
@@ -82,12 +75,6 @@ a {
 header a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 main {
