@@ -245,6 +245,9 @@ function RSVP() {
                   ))}
                 </ul>
               )}
+              <div className={styles.helpMsg}>
+                Can't find your name? <a href="/get-in-touch">Get in touch.</a>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className={styles.rsvpForm}>
