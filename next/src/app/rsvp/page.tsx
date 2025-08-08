@@ -147,10 +147,10 @@ function RSVP() {
         fieldErrs.email = true;
         hasError = true;
       }
-      // Dietary restriction required
-      if (!guest.dietary || guest.dietary === "") {
+      // Dietary restriction required ONLY if attending wedding
+      if (guest.attendingWedding === "Attending" && (!guest.dietary || guest.dietary === "")) {
         fieldErrs.dietary = true;
-        errors.push("Please select a dietary restriction for each guest.");
+        errors.push("Please select a dietary restriction for each guest attending the wedding.");
         hasError = true;
       }
       return fieldErrs;
