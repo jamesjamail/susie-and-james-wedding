@@ -166,11 +166,14 @@ function RSVP() {
     }
     setSubmitting(true);
     // Prepare array of guest data
+    const isInvitedToPRDD = selectedInvitee && selectedInvitee.fields.invited_to_prdd;
     const guestPayload = guests.map((guest) => ({
       name: guest.name,
       email: guest.email,
       attending_wedding: guest.attendingWedding === "Attending",
-      attending_prdd: guest.attendingPRDD === "Attending",
+      attending_prdd: isInvitedToPRDD
+        ? (guest.attendingPRDD === "Attending")
+        : null,
       dietary_restrictions: guest.dietary,
       notes: guest.notes,
     }));
