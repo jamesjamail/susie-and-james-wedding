@@ -214,7 +214,7 @@ function RSVP() {
           <div className={styles.successPage}>
             <h2>Thanks for your RSVP.</h2>
             <p>
-              A confirmation has been emailed to you.<br />
+              A confirmation has been emailed to you. <br className={styles.hideOnMobile} />
               We look forward to celebrating with you soon!
             </p>
           </div>

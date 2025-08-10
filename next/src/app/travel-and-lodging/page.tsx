@@ -63,6 +63,16 @@ export default function TravelAndLodging() {
           .
         </p>
         <p>
+          <strong>Cansler family members:</strong> If you’d like to stay up north near Lynn &amp; David, we’ve arranged a discounted hotel rate just minutes from their home.{" "}
+          <a
+            href="https://www.hilton.com/en/book/reservation/deeplink/?ctyhocn=AUSAAGI&groupCode=CANSLR&arrivaldate=2025-10-24&departuredate=2025-10-26&cid=OM,WW,HILTONLINK,EN,DirectLink&fromId=HILTONLINKDIRECT"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reserve your room here.
+          </a>
+        </p>
+        <p>
           If you’re more of a city rat craving live music, a two-stepping jaunt,
           or an indulgent meal (or six) — we’d recommend staying in Austin!
           Don’t worry, there will be plenty of Texas flags here too. It won’t be

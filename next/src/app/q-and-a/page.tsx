@@ -32,6 +32,7 @@ const faqData = [
   {
     question: "Will there be a hotel block?",
     answer: (
+      <>
       <span>
         No, but we recommend the following hotels if you wish to stay close to
         the venue:{" "}
@@ -79,11 +80,21 @@ const faqData = [
         There are also lots of great Airbnbs in the area if you’re looking for
         something different.
       </span>
+      <br /><br />
+      <strong>Cansler family members:</strong> If you’d like to stay up north near Lynn &amp; David, we’ve arranged a discounted hotel rate just minutes from their home.{" "}
+      <a
+        href="https://www.hilton.com/en/book/reservation/deeplink/?ctyhocn=AUSAAGI&groupCode=CANSLR&arrivaldate=2025-10-24&departuredate=2025-10-26&cid=OM,WW,HILTONLINK,EN,DirectLink&fromId=HILTONLINKDIRECT"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reserve your room here.
+      </a>
+      </>
     ),
   },
   {
     question: "Is there a dress code?",
-    answer: <span>Semi-formal. Think polished, but have fun with it!</span>,
+    answer: <span>Semi-formal. Think polished, but have fun with it!<br /><br /><strong>Heads up:</strong> Pecan Springs Ranch is mostly grass; wearing heels is not recommended.</span>,
   },
   {
     question: "Anything to be aware of in Austin this weekend?",

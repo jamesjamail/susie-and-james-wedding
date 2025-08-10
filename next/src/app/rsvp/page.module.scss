@@ -39,8 +39,9 @@
 .fieldError {
   border: 2px solid #c00 !important;
 }
-// Success page styles
+
 .successPage {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,6 +178,7 @@ select.styledInput option {
   background: #fafafa;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   border-radius: 12px;
+  min-height: 75vh;
 }
 
 .inviteeSearch label {
@@ -340,4 +342,11 @@ select.styledInput option {
   margin-top: 22px;
   font-size: 1em;
   color: var(--tertiary-color);
+  margin-top: auto
+}
+
+.hideOnMobile {
+  @media (max-width: $mobile-breakpoint) {
+    display: none;
+  }
 }
