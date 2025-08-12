@@ -178,7 +178,7 @@ select.styledInput option {
   background: #fafafa;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   border-radius: 12px;
-  min-height: 75vh;
+  min-height: 65vh;
 }
 
 .inviteeSearch label {
@@ -349,4 +349,10 @@ select.styledInput option {
   @media (max-width: $mobile-breakpoint) {
     display: none;
   }
+}
+
+.humanityPrompt {
+  font-style: italic;
+  margin-top: .5rem;
+  color: $primary-color;
 }

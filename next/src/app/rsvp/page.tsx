@@ -391,15 +391,16 @@ function RSVP() {
                 <label htmlFor="humanity-check">
                   <strong>Prove your humanity<span>*</span></strong>
                 </label>
+                <div className={styles.humanityPrompt}>What city is the wedding taking place in?</div>
                 <input
                   id="humanity-check"
                   type="text"
                   className={styles.styledInput}
                   value={humanityCheck}
                   onChange={(e) => setHumanityCheck(e.target.value)}
-                  placeholder="What city is the wedding taking place in?"
                   style={formErrors.some(e => e.toLowerCase().includes('humanity check')) ? { border: "2px solid #c00" } : {}}
                   autoComplete="off"
+                  placeholder="Enter city name here..."
                 />
               </div>
               {/* Render all form validation errors and submitError, each on a new line with consistent styling */}

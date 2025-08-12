@@ -60,7 +60,7 @@ export default function Homepage() {
             </div>
             <div className={styles.textWithBackground}>
               <p className={styles.heading}>
-                Are officially off the market! The countdown is on, and we can’t
+                ...are officially off the market! The countdown is on, and we can’t
                 wait to kick off our forever with YOU—one of our favorite
                 people. Let’s celebrate!
               </p>
