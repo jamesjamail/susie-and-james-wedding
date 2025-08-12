@@ -97,6 +97,25 @@ const faqData = [
     answer: <span>Semi-formal. Think polished, but have fun with it!<br /><br /><strong>Heads up:</strong> Pecan Springs Ranch is mostly grass; wearing heels is not recommended.</span>,
   },
   {
+    question: "Can we send a gift?",
+    answer: 
+      <span>
+        We appreciate your thoughtfulness! If you’d like to send a gift, please see our{" "}
+        <a
+          href="https://www.zola.com/registry/jamesandsusie2025"
+          target="_blank"
+        rel="noopener noreferrer"
+      >
+        registry
+      </a>
+      .
+    </span>,
+  },
+  {
+    question: "Are children allowed?",
+    answer: <span>We love your little ones, but this is an adults-only event.</span>,
+  },
+  {
     question: "Anything to be aware of in Austin this weekend?",
     answer: (
       <span>
