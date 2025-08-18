@@ -1,5 +1,9 @@
 @use "../../app/styles/variables.scss" as *;
 
+.header {
+  margin-top: 36px;
+}
+
 // Error message styling for RSVP form
 .formErrors {
   color: #c00;

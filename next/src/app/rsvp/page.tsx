@@ -209,7 +209,7 @@ function RSVP() {
   return (
     <div className="page">
       <main className="main">
-        <h1>R S V P</h1>
+        <h1 className={styles.header}>R S V P</h1>
         {submitSuccess ? (
           <div className={styles.successPage}>
             <h2>Thanks for your RSVP.</h2>

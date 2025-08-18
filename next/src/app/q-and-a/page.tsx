@@ -100,7 +100,7 @@ const faqData = [
     question: "Can we send a gift?",
     answer: 
       <span>
-        We appreciate your thoughtfulness! If you’d like to send a gift, please see our{" "}
+        We appreciate your thoughtfulness! If you’d like to send a gift before the wedding, please see our{" "}
         <a
           href="https://www.zola.com/registry/jamesandsusie2025"
           target="_blank"
@@ -109,6 +109,9 @@ const faqData = [
         registry
       </a>
       .
+      <br />
+      <br />
+      If you would prefer to bring a gift to the wedding, we will have a gift table set up at the venue.
     </span>,
   },
   {
