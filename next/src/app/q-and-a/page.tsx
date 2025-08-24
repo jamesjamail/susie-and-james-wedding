@@ -98,7 +98,7 @@ const faqData = [
   },
   {
     question: "Is there a dress code?",
-    answer: <span>Semi-formal. Think polished, but have fun with it!<br /><br /><strong>Heads up:</strong> Pecan Springs Ranch is mostly grass; wearing heels is not recommended.</span>,
+    answer: <span>Semi-formal. Think polished, but have fun with it!<br /><br /><strong>Heads up:</strong> The ceremony will be held on grass, so choose footwear accordingly. The rest of the evening will take place on solid ground.</span>,
   },
   {
     question: "Can we send a gift?",
