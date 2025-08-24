@@ -21,6 +21,10 @@ const faqData = [
       </span>
     ),
   },
+    {
+    question: "What about parking?",
+    answer: <span>There is plenty of on-site parking available at the venue. Rideshare services such as Uber are also readily accessible in the area, including from Dripping Springs.</span>,
+  },
   {
     question: "When do we RSVP?",
     answer: (
@@ -118,6 +122,7 @@ const faqData = [
     question: "Are children allowed?",
     answer: <span>We love your little ones, but this is an adults-only event.</span>,
   },
+
   {
     question: "Anything to be aware of in Austin this weekend?",
     answer: (
