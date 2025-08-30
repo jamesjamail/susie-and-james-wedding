@@ -4,6 +4,15 @@
   margin-top: 36px;
 }
 
+.deadlineNotice {
+  text-align: center;
+  margin: 8px 0 16px 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
 // Error message styling for RSVP form
 .formErrors {
   color: #c00;

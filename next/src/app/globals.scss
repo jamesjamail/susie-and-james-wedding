@@ -110,6 +110,10 @@ h1 {
   padding: 0;
 }
 
+button:hover {
+  filter: brightness(0.9);
+}
+
 :not(.react-photo-album--track) button {
   background-color: #5c8313;
   color: white;

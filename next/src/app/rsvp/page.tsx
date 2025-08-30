@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import { setRsvpCompleted } from "@/components/RSVPBanner/RSVPBanner";
 type Invitee = {
   id: string;
   fields: {
@@ -197,6 +198,8 @@ function RSVP() {
       } else {
         setSubmitSuccess(true);
         // setSubmitted(true); // removed unused variable
+        // Mark RSVP completed locally so the banner no longer appears
+        setRsvpCompleted();
       }
     } catch (error) {
       console.error("Error submitting RSVP:", error);
@@ -219,7 +222,9 @@ function RSVP() {
             </p>
           </div>
         ) : (
-          !selectedInvitee ? (
+          <>
+            <div className={styles.deadlineNotice}>Kindly RSVP by September 21st, 2025.</div>
+            {!selectedInvitee ? (
             <div className={styles.inviteeSearch}>
               <label htmlFor="invitee-search">Please enter your name:</label>
               <input
@@ -429,7 +434,8 @@ function RSVP() {
                 </button>
               </div>
             </form>
-          )
+          )}
+          </>
         )}
       </main>
     </div>
