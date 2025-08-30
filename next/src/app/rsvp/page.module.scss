@@ -191,7 +191,7 @@ select.styledInput option {
   background: #fafafa;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   border-radius: 12px;
-  min-height: 65vh;
+  min-height: 55vh;
 }
 
 .inviteeSearch label {
@@ -216,6 +216,7 @@ select.styledInput option {
 
 .inviteeOptions {
   width: 300px;
+  max-width: 100%;
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
@@ -225,6 +226,12 @@ select.styledInput option {
   list-style: none;
   z-index: 10;
   text-align: center;
+  /* Keep list within container bounds */
+  max-height: min(35vh, 340px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 .inviteeOption {
   padding: 10px 16px;
@@ -232,6 +239,10 @@ select.styledInput option {
   font-size: 1em;
   color: #333;
   transition: background 0.15s;
+  /* Prevent text from causing horizontal overflow */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .inviteeOption:hover {
   background: #f3f4f6;
