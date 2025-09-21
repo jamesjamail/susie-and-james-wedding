@@ -270,7 +270,7 @@ function RSVP() {
                       <>
                         <strong>Post Rehearsal Dinner Drinks</strong>
                         <div className={styles.eventDetails}>
-                          <div><strong>Date:</strong> 10/24/2025 - 6:00pm</div>
+                          <div><strong>Date:</strong> 10/24/2025 - 8:00pm</div>
                           <div>
                             <strong>Location:</strong>{" "}
                             <a
