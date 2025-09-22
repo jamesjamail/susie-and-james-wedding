@@ -292,11 +292,7 @@ select.styledInput option {
   color: #fff;
   border: none;
   border-radius: 8px;
-//   padding: 12px 32px;
-//   font-size: 1.1em;
-//   font-weight: 600;
   cursor: pointer;
-//   margin-top: 18px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .submitBtn:disabled {
@@ -379,4 +375,13 @@ select.styledInput option {
   font-style: italic;
   margin-top: .5rem;
   color: $primary-color;
+}
+
+.getInTouchLink {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  button {
+    width: 300px;
+  }
 }

@@ -130,6 +130,12 @@
 
   .header ul {
     li {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
       transition: color 700ms ease;
       &:before {
         content: "";
