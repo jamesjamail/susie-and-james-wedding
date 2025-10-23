@@ -10,7 +10,7 @@ export default function Homepage() {
   const [modalOpen, setModalOpen] = useState(false);
   const modalRef = useRef(null);
 
-  const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=Susie+and+James+Wedding&dates=20251025T210000Z/20251026T040000Z&details=Join+us+for+the+wedding+of+Susie+and+James!&location=Pecan+Springs+Ranch,+Austin,+TX`;
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?text=Susie+and+James+Wedding&dates=20251025T220000Z/20251026T040000Z&details=Join+us+for+the+wedding+of+Susie+and+James!&location=Pecan+Springs+Ranch,+Austin,+TX`;
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
